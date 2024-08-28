@@ -13,6 +13,9 @@ export default function Header() {
         localStorage.removeItem("loggedin")
     }
 
+    const isLoggedIn = localStorage.getItem("loggedin")
+    console.log(isLoggedIn)
+
     return (
         <header>
             <Link className="site-logo" to="/">#VanLife</Link>
@@ -41,7 +44,7 @@ export default function Header() {
                         className="login-icon"
                     />
                 </Link>
-                <button onClick={fakeLogOut}>X</button>
+                <NavLink to="login"><div onClick={fakeLogOut}>Logout</div></NavLink>
             </nav>
         </header>
     )
