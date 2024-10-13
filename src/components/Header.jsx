@@ -13,8 +13,7 @@ export default function Header() {
         localStorage.removeItem("loggedin")
     }
 
-    const isLoggedIn = localStorage.getItem("loggedin")
-    console.log(isLoggedIn)
+    const [isLoggedIn, setIsLoggedIn] = React.useState(localStorage.getItem("loggedin"))
 
     return (
         <header>
@@ -44,7 +43,7 @@ export default function Header() {
                         className="login-icon"
                     />
                 </Link>
-                <NavLink to="login"><div onClick={fakeLogOut}>Logout</div></NavLink>
+                { isLoggedIn && <NavLink to="login"><div onClick={fakeLogOut}>Logout</div></NavLink>}
             </nav>
         </header>
     )
